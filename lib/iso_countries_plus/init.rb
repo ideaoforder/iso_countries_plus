@@ -1,4 +1,5 @@
 ISO_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'countrynames.txt'))	
+ADDITIONS_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'additions.yml'))
 COUNTRY_HASH = {:name => {}, :alpha2 => {}, :alpha3 => {}, :guess => []}
 COUNTRIES = {:name => {}, :alpha2 => {}, :alpha3 => {}, :guess => []}
 
@@ -54,14 +55,8 @@ end
 
 COUNTRY_HASH[:guess].uniq!
 
-# And here are a few variants, because this shit keeps fucking us over
-COUNTRY_HASH[:name]['USA'] = COUNTRY_HASH[:alpha2]['US']
-
-# Jesus, the UK has a lot of different names/countries and even a secondary iso2
-# GB is the official code, but they've also got UK reserved
-COUNTRY_HASH[:name]['UK'] = COUNTRY_HASH[:alpha2]['GB']
-COUNTRY_HASH[:name]['Great Britain'] = COUNTRY_HASH[:alpha2]['GB']
-COUNTRY_HASH[:name]['England'] = COUNTRY_HASH[:alpha2]['GB']
-COUNTRY_HASH[:name]['Scotland'] = COUNTRY_HASH[:alpha2]['GB']
-COUNTRY_HASH[:name]['Wales'] = COUNTRY_HASH[:alpha2]['GB']
-COUNTRY_HASH[:name]['Northern Ireland'] = COUNTRY_HASH[:alpha2]['GB']
+# We keep a list of countries that come up a lot but aren't included in countrynames.txt
+additions = YAML.load_file(ADDITIONS_FILE)
+additions.each do |name, code|
+	COUNTRY_HASH[:name][name] = COUNTRY_HASH[:alpha2][code]
+end
