@@ -1,4 +1,5 @@
 require 'csv'
+require 'yaml'
 
 require "iso_countries_plus/version"
 require 'iso_countries_plus/init'
