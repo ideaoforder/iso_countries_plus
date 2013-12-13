@@ -22,12 +22,12 @@ class IsoCountry
   	alias_method :name, :find_by_name
 
   	def find_by_alpha2(code)
-  		COUNTRIES[:alpha2][code]
+  		COUNTRIES[:alpha2][code.to_s.upcase]
   	end
   	alias_method :alpha2, :find_by_alpha2
 
   	def find_by_alpha3(code)
-  		COUNTRIES[:alpha3][code]
+  		COUNTRIES[:alpha3][code.to_s.upcase]
   	end
   	alias_method :alpha3, :find_by_alpha3
 
