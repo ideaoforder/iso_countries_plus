@@ -59,4 +59,5 @@ COUNTRY_HASH[:guess].uniq!
 additions = YAML.load_file(ADDITIONS_FILE)
 additions.each do |name, code|
 	COUNTRY_HASH[:name][name] = COUNTRY_HASH[:alpha2][code]
+	COUNTRY_HASH[:name][name.downcase] = COUNTRY_HASH[:alpha2][code]
 end
