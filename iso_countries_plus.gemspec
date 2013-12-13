@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
   s.name        = "iso_countries_plus"
   s.version     = IsoCountriesPlus::VERSION
   s.platform    = Gem::Platform::RUBY
-  spec.authors       = ["Mark Dickson"]
-  spec.email         = ["mark@sitesteaders.com"]
-  spec.description   = %q{This gem differs from other ISO country gems in that it allows VERY flexible name lookups, so country names like 'South Korea' will work properly.}
-  spec.summary       = %q{ISO Countries, including all standard name variations, alpha2, and alpha3}
+  s.authors       = ["Mark Dickson"]
+  s.email         = ["mark@sitesteaders.com"]
+  s.description   = %q{This gem differs from other ISO country gems in that it allows VERY flexible name lookups, so country names like 'South Korea' will work properly.}
+  s.summary       = %q{ISO Countries, including all standard name variations, alpha2, and alpha3}
   s.homepage    = "https://github.com/ideaoforder/iso_countries_plus"
 
   s.rubyforge_project = "iso_countries_plus"
