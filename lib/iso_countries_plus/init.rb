@@ -1,5 +1,6 @@
 ISO_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'countrynames.txt'))	
 ADDITIONS_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'additions.yml'))
+CONTINENTS_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'country_continents.csv'))
 COUNTRY_HASH = {:name => {}, :alpha2 => {}, :alpha3 => {}, :guess => []}
 COUNTRIES = {:name => {}, :alpha2 => {}, :alpha3 => {}, :guess => []}
 
@@ -60,4 +61,10 @@ additions = YAML.load_file(ADDITIONS_FILE)
 additions.each do |name, code|
 	COUNTRY_HASH[:name][name] = COUNTRY_HASH[:alpha2][code]
 	COUNTRY_HASH[:name][name.downcase] = COUNTRY_HASH[:alpha2][code]
+end
+
+CSV.foreach(CONTINTENT_FILE, :col_sep => ",") do |row|
+	if COUNTRY_HASH[:alpha2][row[0]] and row[1] != '--'
+		COUNTRY_HASH[:alpha2][row[0]].merge!{:continent => row[0]}
+	end
 end

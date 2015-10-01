@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    iso_countries_plus (0.1.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  iso_countries_plus!
+
+BUNDLED WITH
+   1.10.6
