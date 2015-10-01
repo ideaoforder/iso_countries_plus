@@ -63,8 +63,8 @@ additions.each do |name, code|
 	COUNTRY_HASH[:name][name.downcase] = COUNTRY_HASH[:alpha2][code]
 end
 
-CSV.foreach(CONTINTENT_FILE, :col_sep => ",") do |row|
+CSV.foreach(CONTINENTS_FILE, :col_sep => ",") do |row|
 	if COUNTRY_HASH[:alpha2][row[0]] and row[1] != '--'
-		COUNTRY_HASH[:alpha2][row[0]].merge!{:continent => row[0]}
+		COUNTRY_HASH[:alpha2][row[0]].merge!(:continent => row[0])
 	end
 end
