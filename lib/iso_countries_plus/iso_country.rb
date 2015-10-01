@@ -1,6 +1,6 @@
 class IsoCountry
 
-	attr_accessor :name, :alpha2, :alpha3
+	attr_accessor :name, :alpha2, :alpha3, :continent
     
   def initialize(data={})
   	if data and !data.nil?
