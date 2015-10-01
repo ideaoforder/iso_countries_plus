@@ -2,6 +2,8 @@
 
 This gem differs from other ISO country gems in that it allows VERY flexible name lookups by cross-compiling additional country name standards, so country names like 'South Korea' and 'Russia' will work properly. It uses a file compiled by OpenGeocode.org consisting of the ISO 3166-1 country names (including foreign variants) and codes, as well as the U.S. Board on Geographic Names (BGN), United Nations Group of Experts on Geographic Names (UNGEGN), and U.K. Permanent Committee on Geographic Names (PCGN) country names. More info here: http://opengeocode.org/download.php#countrynames
 
+Additionally, a country's continent was added in version 0.2.0.
+
 File downloadable here: http://opengeocode.org/download/countrynames.txt
 
 Developed by [Whiplash Merchandising](http://whiplash.io/)
@@ -32,6 +34,7 @@ country = IsoCountry.find_by_name("South Korea")
 country.alpha2 # KR
 country.alpha3 # KOR
 country.name # Korea, Republic of
+country.continent # AS
 ```
 
 ## Features
